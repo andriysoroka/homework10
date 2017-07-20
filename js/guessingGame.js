@@ -14,17 +14,17 @@
 
 	function play() {
 		debugger
-		askNumber = parseInt(prompt("Nice! Let's start! You have three chance! Write random numder", askNumber));
+		askNumber = parseInt(prompt("Nice! Let's start! You have three chances! Write random numder", askNumber));
 		parthOfPrice = 1;
 		if (askNumber === randomNumber) {
 			congratulation(parthOfPrice);
 		} else {
-			askNumber = parseInt(prompt("Wrong! You have two chance", askNumber));
+			askNumber = parseInt(prompt("Wrong! You have two chances", askNumber));
 			parthOfPrice = 2;
 				if(askNumber === randomNumber) {
 					congratulation(parthOfPrice);
 				} else {
-					askNumber = parseInt(prompt("Wrong! You have the last chance", askNumber));
+					askNumber = parseInt(prompt("Wrong! You have the last chances", askNumber));
 					parthOfPrice = 5;
 					if(askNumber === randomNumber) {
 						congratulation(parthOfPrice);
