@@ -11,35 +11,32 @@
 	} else {
 		goodBye();
 	}
+	function isStepSuccess(message, parthOfPrice) {
+		debugger
+		let askedNumber = parseInt(prompt(message));
+		if (askedNumber === randomNumber) {
+			alert(`Сongratulation! Your price is ${prise / parthOfPrice}$`);
+			correctNumber(parthOfPrice);
+			return true
+		}
+		return false;
+	}
 
 	function play() {
-		debugger
-		askNumber = parseInt(prompt("Nice! Let's start! You have three chances! Write random numder", askNumber));
-		parthOfPrice = 1;
-		if (askNumber === randomNumber) {
-			congratulation(parthOfPrice);
-		} else {
-			askNumber = parseInt(prompt("Wrong! You have two chances", askNumber));
-			parthOfPrice = 2;
-				if(askNumber === randomNumber) {
-					congratulation(parthOfPrice);
-				} else {
-					askNumber = parseInt(prompt("Wrong! You have the last chances", askNumber));
-					parthOfPrice = 5;
-					if(askNumber === randomNumber) {
-						congratulation(parthOfPrice);
-					} else {
-						alert (`Your price is - 0$`);
-						oneMoreTry();
-					}
-				}
+		let isSuccess;
+		isSuccess = isStepSuccess("Nice! Let's start! You have three chance! Write random numder", 1);
+		if(!isSuccess) isSuccess = isStepSuccess("Wrong! You have two chance", 2);
+		if(!isSuccess) isSuccess = isStepSuccess("Wrong! You have the last chance", 5);
+		if(!isSuccess) {
+			alert (`Your price is - 0$`);
+			oneMoreTry();
 		}
 	}
 	function congratulation(parth){
 		alert(`Сongratulation! Your price is ${prise / parth}$`);
 		correctNumber();
 	}
-	function correctNumber() {
+	function correctNumber(parthOfPrice) {
 		askContinue = confirm("continue?");
 		if (askContinue) {
 			prise = prise * 3;
